@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-sm bg-light">
+    <div class="container-fluid">
+        <img class="w-25 p-3" src="../../egg.png" alt="EggNews">
+        <a class="navbar-brand" href="#">Sitio de Noticias</a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" sec:authorize="hasAnyRole('PERIODISTA','ADMIN')" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Noticias
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" th:href="@{/noticia/index}">Ver todas</a></li>
+                    <li><a class="dropdown-item" th:href="@{/noticia/registrar}">Publicar</a></li>
+                    <li><a class="dropdown-item" th:href="@{/noticia/editar}">Editar</a></li>
+                </ul>
+            </li>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" sec:authorize="hasRole('ADMIN')" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Periodistas
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" th:href="@{/admin/registrar}">Alta</a></li>
+                            <li><a class="dropdown-item" href="/admin/listar">Listado</a></li> 
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Perfil
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/logout">Cerrar sesión</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </ul>
+    </div>
+</nav>

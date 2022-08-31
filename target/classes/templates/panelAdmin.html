@@ -1,0 +1,35 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head th:replace = "/fragments/head :: head" </head>
+
+    <body>
+
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+                            <nav th:replace = "/fragments/nav :: nav" </nav>
+           
+
+        </header> 
+
+        <div class="container">  
+            <div class="row mt-4">    
+
+
+                <div class="card p-3 mb-2 ms-3 bg-light text-dark" style="width: 18rem;" th:each="noticia : ${noticias}">
+                    <img th:src="@{/imagen/noticia/__${noticia.id}__}" class="card-img-top w-75 p-3" alt="imagen noticia">
+                    <div class="card-body" >
+                        <h5 class="card-title" th:text="${noticia.titulo}"></h5>
+                        <p class="card-text" th:text="${noticia.creador.nombre}"></p>
+                    </div>
+                    <div class="card-body">
+                        <!--<a th:href="@{/noticia/mostrar/__${noticia.id}__}" class="card-link">Leer más</a>-->
+                        <a th:href="@{/noticia/modificar/__${noticia.id}__}"><i>Modificar</i></a>
+                        <a th:href="@{/noticia/eliminar/__${noticia.id}__}"><i>Eliminar</i></a>
+                    </div>
+                </div>
+            </div>
+        </div>      
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    </body>
+</html>
+

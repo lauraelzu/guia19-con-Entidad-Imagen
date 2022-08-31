@@ -1,0 +1,56 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head th:replace = "/fragments/head :: head" </head>
+
+    <body>
+
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+
+            <nav th:replace = "/fragments/nav :: nav" </nav>
+
+
+
+        </header>         
+
+        <!---<p th:if="${sesion.usuariosesion != null}" th:text=" 'Bienvenido ' + ${sesion.usuariosesion.nombre}" ></p>-->        
+
+        <!--FORMATO CARD de BOOTSTRAP-->
+        <div class="container">  
+            <div class="row mt-4">
+
+                <div class="card shadow  p-3 mb-3 ms-3 bg-light text-dark" style="width: 18rem;" th:each="noticia : ${noticias}">
+                   
+                    <div class="card-body" >
+                        <h4 class="card-title" th:text="${noticia.titulo}"></h4>
+                        <div align="right" class="card-text" >
+                            <p><i>Por: <span th:text = "${noticia.creador.nombre}"></span></i></p>
+                            <p><i>Publicado: <span th:text = "${noticia.fechaPublicacion}"></span></i></p>
+                        </div>
+                    </div>
+                    <img th:src="@{/imagen/noticia/__${noticia.id}__}" class="card-img-top" alt="imagen noticia">
+                    <div class="card-body">
+                        <a th:href="@{/noticia/mostrar/__${noticia.id}__}" class="card-link">Leer más</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div th:if="${exito != null}" class="card text-white bg-succes mb-3 mt-3 mensajeExito">
+            <div class="card-body">
+                <h5 class="card-title">Exito</h5>
+                <p class="card-text" th:text="${exito}"></p>
+            </div>
+        </div>
+
+        <div th:if="${error != null}" class="card text-white bg-danger mb-3 mensajeError">
+            <div class="card-body">
+                <h5 class="card-title">Error</h5>
+                <p class="card-text" th:text="${error}"></p>                
+            </div>
+        </div>  
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    </body>
+</html>

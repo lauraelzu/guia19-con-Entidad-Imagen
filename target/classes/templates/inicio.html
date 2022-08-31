@@ -1,0 +1,46 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    
+    <head th:replace = "/fragments/head :: head" </head>
+    
+    <body>
+        <nav>
+            <ul class="nav justify-content-end">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="/usuario/registrar">Registrarse</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/login">Iniciar sesión</a>
+                  </li>
+            </ul>     
+        </nav>  
+           
+        
+        
+            <div>
+                   <img src="egg.png" class="position-absolute top-50 start-50 translate-middle img-thumbnail w-25 p-3" >      
+           
+            </div>
+           <!--en caso de error muestra el mensaje de error de la validación que tiene la llave "error"-->
+            <div th:if="${error != null}" class="card text-white bg-danger mb-3 mensajeError">
+                <div class="card-body">
+                    <h5 class="card-title">Error</h5>
+                    <p class="card-text" th:text="${error}"></p>                 
+                </div>
+            </div>
+            
+            <!--en caso de éxito muestra el mensaje de éxito de la validación que tiene la llave "exito"-->
+            <div th:if="${exito != null}" class="card text-green bg-succes mb-3 mt-3 mensajeExito">
+                <div class="card-body">
+                    <!--<h5 class="card-title">Exito</h5>-->
+                    <p class="card-text" th:text="${exito}"></p>                   
+                </div>
+            </div>
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <p class="position-absolute bottom-0 start-50 translate-middle"> Mendoza - Argentina</p>
+    </footer>    
+        
+  
+    </body>
+
+</html>
+

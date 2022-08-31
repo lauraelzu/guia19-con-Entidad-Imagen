@@ -1,0 +1,34 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    
+    <head th:replace = "/fragments/head :: head" </head>
+    
+    <body>
+        <div>Listado de Periodistas Activos</div>
+        
+         <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">dni</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Fecha Alta</th>
+                    <th scope="col">Fecha Baja</th>
+                    <th scope="col">Sueldo mensual</th>
+                </tr>
+            </thead>
+            <tbody th:each="periodista : ${periodistas}">
+                <tr>
+                    <th scope="row" th:text="${periodista.dni}"></th>
+                    <td th:text="${periodista.nombre}"></td>
+                    <td th:text="${periodista.fechaAlta}"></td>
+                    <td th:text="${periodista.fechaBaja}"></td>
+                    <td th:text="${periodista.sueldoMensual}"></td>
+                    <td>
+                        <a th:href="@{/admin/eliminar/__${periodista.dni}__}"><i>Eliminar</i></a>
+                    </td>
+                </tr> 
+               
+            </tbody>
+        </table>
+        
+    </body>
+</html>

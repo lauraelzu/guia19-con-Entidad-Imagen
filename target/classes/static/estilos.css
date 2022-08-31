@@ -1,0 +1,10 @@
+body{
+    margin: 0 auto;
+    min-width: 700px;
+}
+/*  NO FUNCIONA
+.card p-3 mb-2 bg-light text-dark{
+    display: flex;
+    justify-content: space-around;    
+}
+*/

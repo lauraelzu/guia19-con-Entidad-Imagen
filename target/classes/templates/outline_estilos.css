@@ -1,0 +1,37 @@
+
+body {
+    font-family: 'DynaPuff', cursive; /*fonts de Google*/
+   /* background-color: #BDB76B;*/
+    background-image: url(https://www.clarin.com/img/2018/08/12/retrato-del-general-jose-francisco___HkfKeD18X_1256x620__3.jpg);
+    margin: 0%
+}
+
+header { 
+   
+}
+
+.enlace{
+    color: #FFFFFF; /*enlaces color blanco      https://encycolorpedia.com/*/
+    text-decoration: none; /*sin subrayado*/
+}
+
+#opcionesMenu{
+    background-color: #556B2F;
+    padding: 3px;
+    display: flex;
+    justify-content: space-around;               
+    width: 100%;
+}
+
+#columnaizquierda {
+    background-color: rgba(189, 183, 107, 0.75);
+    margin: 0px 10px;
+    max-width: 50%;
+    text-align: justify;
+    float: left; /*poner a la izq*/
+}
+
+#columnaderecha {
+    margin: 20px;
+    text-align: justify;
+}

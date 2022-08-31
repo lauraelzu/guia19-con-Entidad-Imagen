@@ -1,0 +1,62 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    
+    <head th:replace = "/fragments/head :: head" </head>
+    
+    <body>
+        
+        
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <nav class="navbar navbar-expand-sm bg-light">
+                <div class="container-fluid">
+                    <img class="w-25 p-3" src="../../egg.png" alt="EggNews">
+                    <a class="navbar-brand" href="#">Publicar</a>
+                </div>
+             </nav>
+        </header> 
+        
+        <div class="container-fluid m-5 contenedor">
+                                               <!--enctype="multipart/form-data" para envio de imagenes-->
+            <form class="formulario" th:action="@{/noticia/guardar}" method="POST" enctype="multipart/form-data">
+                
+                <div class="container">
+
+                </div>
+                                
+                <div class="form-group my-3">
+                    <input type="text" class="form-control" name="titulo" placeholder="Título de la noticia" th:value="${titulo}">
+                </div>
+                <div class="form-group my-3">
+                    <textarea rows="10" class="form-control" name="cuerpo" th:value="${cuerpo}">Escribir la noticia...</textarea>
+                </div>
+                
+                <div class="form-group my-3">
+                    <input type="file" class="form-control" name="archivo">
+                </div>
+             
+                <div class="form-group my-3">
+                    <input type="text" class="form-control" name="dni" th:value="${dni}">
+                </div>
+                
+                 <!--en caso de error muestra el mensaje de error de la validación que tiene la llave "error"-->
+                <div th:if="${error != null}" class="card text-white bg-danger mb-3 mensajeError">
+                    <div class="card-body">
+                        <h5 class="card-title">Error</h5>
+                        <p class="card-text" th:text="${error}"></p>                 
+                    </div>
+                </div>
+
+                <!--en caso de éxito muestra el mensaje de éxito de la validación que tiene la llave "exito"-->
+                <div th:if="${exito != null}" class="card text-white bg-succes mb-3 mt-3 mensajeExito">
+                    <div class="card-body">
+                        <h5 class="card-title">Exito</h5>
+                        <p class="card-text" th:text="${exito}"></p>                   
+                    </div>
+                </div>  
+                
+                 <button type="submit" class="btn btn-primary">Publicar</button>
+                
+            </form>
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    </body>
+</html>
